@@ -1,6 +1,13 @@
 <?php
     include "User.php";
+?>
+
+<?php
     $user = new User();
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])){
+        $uReg = $user->userRegistration($_POST);
+    }
+
 ?>
 
 
@@ -22,7 +29,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <form action="" method="post">
+
+            <form action="registration.php" method="POST">
 
 
                 <label for="fname">First Name</label>
@@ -50,7 +58,7 @@
                     <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password here">
                 </div>
 
-                <input type="submit" value="Register">
+                <input type="submit" value="Register" name="register">
             </form>
         </div>
     </div>

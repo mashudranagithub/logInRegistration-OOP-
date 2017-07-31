@@ -1,6 +1,4 @@
 <?php
-
-
 class Database{
     private $dbhost = "localhost";
     private $dbname = "login-register";
@@ -10,7 +8,7 @@ class Database{
 
     public function __construct()
     {
-        if(isset($this->pdo)){
+        if(!isset($this->pdo)){
             try{
                 $conn = new PDO("mysql:host=".$this->dbhost.";dbname=".$this->dbname,$this->dbuser,$this->dbpass);
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
